@@ -1,0 +1,1026 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.Form..Create
+Gui.Form..Caption("Quality Issue Text Messaging")
+Gui.Form..Size(6525,11430)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..BackColor(-2147483633)
+Gui.Form..MousePointer(0)
+Gui.Form..Event(UnLoad,Form_UnLoad)
+Gui.Form.txtHeader.Create(TextBoxR)
+Gui.Form.txtHeader.Size(5955,1980)
+Gui.Form.txtHeader.Position(150,4125)
+Gui.Form.cmdSend.Create(Button)
+Gui.Form.cmdSend.Size(855,375)
+Gui.Form.cmdSend.Position(150,10485)
+Gui.Form.cmdSend.Caption("Send")
+Gui.Form.cmdSend.Event(Click,cmdSend_Click)
+Gui.Form.cmdSend.BackColor(-2147483635)
+Gui.Form.cmdSend.ForeColor(16777215)
+Gui.Form.ddlDept.Create(DropDownList)
+Gui.Form.ddlDept.Size(1830,330)
+Gui.Form.ddlDept.Position(375,375)
+Gui.Form.ddlDept.Event(Click,ddlDept_Click)
+Gui.Form.lbl1.Create(Label,"Department",True,1125,255,0,345,150,True,0,"Arial",8,-2147483633,0)
+Gui.Form.frame1.Create(Frame)
+Gui.Form.frame1.Size(5925,855)
+Gui.Form.frame1.Position(180,2895)
+Gui.Form.frame1.Caption("Common Issues")
+Gui.Form.ddlCommonIssues.Create(DropDownList)
+Gui.Form.ddlCommonIssues.Size(5550,330)
+Gui.Form.ddlCommonIssues.Position(210,315)
+Gui.Form.ddlCommonIssues.Parent("frame1")
+Gui.Form.ddlCommonIssues.Event(Click,cmdAdd_CommonIssues_Click)
+Gui.Form.cmdAdd.Create(Button)
+Gui.Form.cmdAdd.Size(1320,375)
+Gui.Form.cmdAdd.Position(4575,285)
+Gui.Form.cmdAdd.Caption("Add Issues")
+Gui.Form.cmdAdd.Event(Click,cmdAdd_CommonIssues_Click)
+Gui.Form.cmdAdd.Parent("frame1")
+Gui.Form.cmdAdd.Visible(False)
+Gui.Form.cmdClearHeader.Create(Button)
+Gui.Form.cmdClearHeader.Size(1320,315)
+Gui.Form.cmdClearHeader.Position(150,6150)
+Gui.Form.cmdClearHeader.Caption("Clear Header")
+Gui.Form.cmdClearHeader.Event(Click,ddlDept_Click)
+Gui.Form.frame2.Create(Frame)
+Gui.Form.frame2.Size(5880,1920)
+Gui.Form.frame2.Position(210,900)
+Gui.Form.frame2.Caption("Employee / Job / WC / Priority")
+Gui.Form.lblEmp.Create(Label,"Employee",True,1620,255,0,165,405,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblEmp.Parent("frame2")
+Gui.Form.txtEmp.Create(TextBox,"",True,1830,300,0,165,630,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtEmp.Parent("frame2")
+Gui.Form.lblJob.Create(Label,"Job",True,1635,255,0,2100,405,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblJob.Parent("frame2")
+Gui.Form.txtJob.Create(TextBox,"",True,1830,300,0,2115,630,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtJob.Event(KeyPressEnter,txtJob_KeyPressEnter)
+Gui.Form.txtJob.Parent("frame2")
+Gui.Form.txtJob.Event(LostFocus,txtJob_KeyPressEnter)
+Gui.Form.lblSuffix.Create(Label,"Suffix",True,570,255,0,4050,405,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblSuffix.Parent("frame2")
+Gui.Form.txtSuffix.Create(TextBox,"",True,480,300,0,4080,630,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtSuffix.Parent("frame2")
+Gui.Form.txtSuffix.MaxLength(3)
+Gui.Form.lblSeq.Create(Label,"Sequence",True,900,255,0,4680,405,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblSeq.Parent("frame2")
+Gui.Form.txtSeq.Create(TextBox,"",True,825,300,0,4695,630,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtSeq.Parent("frame2")
+Gui.Form.txtSeq.MaxLength(6)
+Gui.Form.lblWC.Create(Label,"Work Center",True,1260,255,0,165,1140,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblWC.Parent("frame2")
+Gui.Form.ddlWC.Create(DropDownList)
+Gui.Form.ddlWC.Size(1830,330)
+Gui.Form.ddlWC.Position(165,1365)
+Gui.Form.ddlWC.Event(Click,Create_Header_Based_On_WildCard)
+Gui.Form.ddlWC.Parent("frame2")
+Gui.Form.lblPriority.Create(Label,"Priority",True,1125,255,0,2100,1140,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblPriority.Parent("frame2")
+Gui.Form.ddlPriority.Create(DropDownList)
+Gui.Form.ddlPriority.Size(1830,330)
+Gui.Form.ddlPriority.Position(2115,1365)
+Gui.Form.ddlPriority.Event(Click,Create_Header_Based_On_WildCard)
+Gui.Form.ddlPriority.Parent("frame2")
+Gui.Form.txtBody.Create(TextBoxR)
+Gui.Form.txtBody.Size(5910,2865)
+Gui.Form.txtBody.Position(150,6945)
+Gui.Form.lbl2.Create(Label,"Header",True,930,255,0,150,3900,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl3.Create(Label,"Body",True,975,255,0,150,6720,True,0,"Arial",8,-2147483633,0)
+Gui.Form.cmdClearBody.Create(Button)
+Gui.Form.cmdClearBody.Size(1320,315)
+Gui.Form.cmdClearBody.Position(150,9855)
+Gui.Form.cmdClearBody.Caption("Clear Body")
+Gui.Form.cmdClearBody.Event(Click,cmdClearBody_Click)
+Gui.Form.txtG_Name.Create(TextBox,"",False,1215,300,0,4845,390,True,0,"Arial",8,-2147483643,1)
+Gui.Form2..Create
+Gui.Form2..Caption("Quality Issue Group Maintenance")
+Gui.Form2..Size(12990,6870)
+Gui.Form2..MinX(0)
+Gui.Form2..MinY(0)
+Gui.Form2..Position(0,0)
+Gui.Form2..BackColor(-2147483633)
+Gui.Form2..MousePointer(0)
+Gui.Form2..Event(UnLoad,Form_UnLoad)
+Gui.Form2.lblGroup.Create(Label,"Group",True,1935,255,0,105,225,True,0,"Arial",8,-2147483633,0)
+Gui.Form2.lblSendMail.Create(Label,"Sender Email",True,1935,255,0,6630,885,True,0,"Arial",8,-2147483633,0)
+Gui.Form2.txtSenderEmail.Create(TextBox,"",True,3120,300,0,6660,1125,True,0,"Arial",8,-2147483643,1)
+Gui.Form2.txtSenderEmail.TabStop(True)
+Gui.Form2.txtSenderEmail.TabIndex(4)
+Gui.Form2.txtMessage.Create(TextBoxR)
+Gui.Form2.txtMessage.Size(12555,2895)
+Gui.Form2.txtMessage.Position(105,1845)
+Gui.Form2.txtMessage.TabStop(True)
+Gui.Form2.txtMessage.TabIndex(6)
+Gui.Form2.cmdSave.Create(Button)
+Gui.Form2.cmdSave.Size(855,375)
+Gui.Form2.cmdSave.Position(135,6090)
+Gui.Form2.cmdSave.Caption("Save")
+Gui.Form2.cmdSave.Event(Click,cmdSave_Click)
+Gui.Form2.cmdSave.TabStop(True)
+Gui.Form2.cmdSave.TabIndex(7)
+Gui.Form2.lblMessage.Create(Label,"Text Message",True,1935,255,0,105,1620,True,0,"Arial",8,-2147483633,0)
+Gui.Form2.lblWildcards.Create(Label,"Wildcards:  Employee - {EMP}",True,8835,315,0,105,4815,True,0,"Arial",8,-2147483633,0)
+Gui.Form2.txtGroup.Create(TextBox,"",True,1215,300,0,120,465,True,0,"Arial",8,-2147483643,1)
+Gui.Form2.txtGroup.TabStop(True)
+Gui.Form2.txtGroup.TabIndex(1)
+Gui.Form2.txtGroupName.Create(TextBox,"",True,1965,300,0,1395,465,True,0,"Arial",8,-2147483643,1)
+Gui.Form2.txtGroupName.TabStop(True)
+Gui.Form2.txtGroupName.TabIndex(2)
+Gui.Form2.cmdGroup.Create(Button)
+Gui.Form2.cmdGroup.Size(390,375)
+Gui.Form2.cmdGroup.Position(3405,420)
+Gui.Form2.cmdGroup.Caption("^")
+Gui.Form2.cmdGroup.Event(Click,cmdGroup_Click)
+Gui.Form2.cmdGroup.TabStop(True)
+Gui.Form2.cmdGroup.TabIndex(3)
+Gui.Form2.lbl1.Create(Label,"Workcenter - {WC}",True,3510,255,0,1020,5475,True,0,"Arial",8,-2147483633,0)
+Gui.Form2.ddlMaintDept.Create(DropDownList)
+Gui.Form2.ddlMaintDept.Size(2220,330)
+Gui.Form2.ddlMaintDept.Position(9930,1110)
+Gui.Form2.ddlMaintDept.Event(Click,ddlMaintDept_Click)
+Gui.Form2.ddlMaintDept.TabStop(True)
+Gui.Form2.ddlMaintDept.TabIndex(5)
+Gui.Form2.lbl2.Create(Label,"Job - {JOB}, Suffix - {SUFFIX} (For Quality Only)",True,5145,255,0,975,5145,True,0,"Arial",8,-2147483633,0)
+Gui.Form2.lbl3.Create(Label,"Priority - {PRIORITY} (For Maintenance and IT)",True,3870,255,0,1035,5835,True,0,"Arial",8,-2147483633,0)
+Gui.Form2.lblGroupEmail.Create(Label,"Group Email ; delimited",True,1935,255,0,135,885,True,0,"Arial",8,-2147483633,0)
+Gui.Form2.txtGroupEmail.Create(TextBox,"",True,3120,300,0,135,1125,True,0,"Arial",8,-2147483643,1)
+Gui.Form2.txtGroupEmail.TabStop(True)
+Gui.Form2.txtGroupEmail.TabIndex(4)
+Gui.Form2.lblCritEmail.Create(Label,"Critical Email (Single Emial)",True,2100,255,0,3390,885,True,0,"Arial",8,-2147483633,0)
+Gui.Form2.txtCritEmail.Create(TextBox,"",True,3120,300,0,3390,1125,True,0,"Arial",8,-2147483643,1)
+Gui.Form2.txtCritEmail.TabStop(True)
+Gui.Form2.txtCritEmail.TabIndex(4)
+Gui.Form2.chkCritEmailorText.Create(CheckBox)
+Gui.Form2.chkCritEmailorText.Size(8415,360)
+Gui.Form2.chkCritEmailorText.Position(3930,435)
+Gui.Form2.chkCritEmailorText.Caption("Check to Send Critital Issues to Critical Email Address / Unchecked sends Critical Issues as a Text Message")
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Variable.Global.sCommon.Declare
+v.Global.sGrpEmail.Declare
+v.Global.sGrpName.declare
+V.Global.bRST.Declare(Boolean,False)
+V.Global.bRSTSend.Declare(Boolean,False)
+V.Global.bRSTGrp.Declare(Boolean,False)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+V.Local.sSql.Declare
+V.Local.sFile.Declare
+V.Local.bRet.Declare
+V.Local.sTemp.Declare
+V.Local.i.Declare
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+F.Intrinsic.Control.SelectCase(V.Caller.Hook)
+	F.Intrinsic.Control.Case(15710)
+		'chaning script 3 button to say messaging
+		V.Passed.000020.Set("Issue")
+
+	F.Intrinsic.Control.Case(15770)
+'		making sure an employee is active
+		F.Intrinsic.Control.If(V.Passed.000005,<>,"")
+'			setting employee
+			Gui.Form.txtEmp.Text(V.Passed.000005.Trim)	
+
+			f.Intrinsic.Control.BlockEvents
+			'load initial group name
+'			f.Intrinsic.String.Build("Select Group_Name from GCG_4451_")
+'			f.Data.DataTable.CreateFromSQL("Group","con","Select distinct Group_Name from GCG_4451_TextM_Maint order by Group_Name",True)
+'			f.Intrinsic.Control.For(v.Local.i,0,v.DataTable.Group.RowCount--,1)
+'				f.Global.Security.IsInGroup(v.Caller.User,v.DataTable.Group(v.Local.i).Group_Name!FieldValTrim,v.Local.bRet)
+'				f.Intrinsic.Control.if(v.Local.bRet,=,True)
+'					gui.Form.txtG_Name.Text(v.DataTable.Group(v.Local.i).Group_Name!FieldValTrim)
+'					f.Intrinsic.Control.ExitFor(v.Local.i)
+'				f.Intrinsic.Control.EndIf
+'			f.Intrinsic.Control.Next(v.Local.i)
+'			f.Data.DataTable.Close("Group")
+			
+			'Populating Dept Dropdown
+			Gui.Form.ddlDept.AddItem("Quality")
+			Gui.Form.ddlDept.AddItem("Maintenance")
+			Gui.Form.ddlDept.AddItem("Engineering")
+			Gui.Form.ddlDept.AddItem("IT")
+			'Default the Department to 'Quality'
+			Gui.Form.ddlDept.ListIndex(0)
+			f.Intrinsic.Control.CallSub(Populate_Common_Issues_DropDown,"sCommonIssues","Incorrect Color*!*Incorrect Dimensions*!*Physical Damage*!*Incorrect Component*!*Component Not Available*!*Drawing Issue")
+			
+			'Populating Priority Dropdown
+			Gui.Form.ddlPriority.AddItem("1-Emergency")
+			Gui.Form.ddlPriority.AddItem("2-Normal")
+			Gui.Form.ddlPriority.AddItem("3-Low")
+			gui.Form.ddlPriority.Visible(True)
+			gui.Form.lblPriority.Visible(True)
+					
+			'Populating Work Center Dropdown
+			V.Local.sSql.Set("Select distinct Machine, Machine From V_WorkCenters Order by Machine")
+			F.Data.Dictionary.CreateFromSQL("Machine","con",V.Local.sSql)
+			Gui.Form.ddlWC.AddItem("")
+			Gui.Form.ddlWC.AddItems("Dictionary","Machine")
+			Gui.Form.ddlWC.Enabled(False)
+			
+			Gui.Form..Show				
+				
+			f.Intrinsic.Control.UnBlockEvents
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Scan Employee Badge First.")
+		
+			F.Intrinsic.Control.CallSub(form_unload)
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.CaseElse	
+		'maintenance program 		
+		f.Intrinsic.String.Build("Select Rec_ID, Group_ID, Group_Name, Group_Email, Sender_Email, Message, Critical_Email, Send_Crit_Email From GCG_4451_TextM_Maint where Group_ID = '{0}' and ltrim(rtrim(Department)) = '{0}'",V.Screen.Form2!txtGroup.Text,v.Local.sSql)
+'		F.Intrinsic.Control.If(V.ODBC.con!rst.State,=,1)
+'			F.ODBC.con!rst.Close
+'		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Global.bRST)
+			F.ODBC.con!rst.Close
+			V.Global.bRST.Set(False)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.Connection!con.OpenLocalRecordsetRW("rst",V.Local.sSql)
+		V.Global.bRST.Set(True)
+		F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+			Gui.Form2.txtGroup.Text(V.ODBC.con!rst.FieldValLong!Group_ID)
+			Gui.Form2.txtGroupName.Text(V.ODBC.con!rst.FieldValTrim!Group_Name)
+			Gui.Form2.txtSenderEmail.Text(V.ODBC.con!rst.FieldValTrim!Sender_Email)
+			Gui.Form2.txtGroupEmail.Text(V.ODBC.con!rst.FieldValTrim!Group_Email)
+			Gui.Form2.txtMessage.Text(V.ODBC.con!rst.FieldValTrim!Message)
+			Gui.Form2.txtCritEmail.Text(V.ODBC.con!rst.FieldValTrim!Critical_Email)
+			Gui.Form2.chkCritEmailorText.Value(V.ODBC.con!rst.FieldVal!Send_Crit_Email)
+		F.Intrinsic.Control.EndIf
+'		F.Intrinsic.Control.If(V.ODBC.con!rst.State,=,1)
+'			F.ODBC.con!rst.Close
+'		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Global.bRST)
+			F.ODBC.con!rst.Close
+			V.Global.bRST.Set(False)
+		F.Intrinsic.Control.EndIf
+		gui.Form2.ddlMaintDept.AddItem("Quality")
+		gui.Form2.ddlMaintDept.AddItem("Maintenance")
+		gui.Form2.ddlMaintDept.AddItem("Engineering")
+		gui.Form2.ddlMaintDept.AddItem("IT")
+		gui.Form2.ddlMaintDept.ListIndex(0)
+		Gui.Form2..Show
+
+F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.Main.End
+
+Program.Sub.Form_UnLoad.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+'closing and ending program
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.ddlDept_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+v.Local.sTemp.Declare
+v.Local.i.Declare
+
+f.Intrinsic.Control.BlockEvents
+
+gui.Form.ddlWC.Text("")
+gui.Form.ddlPriority.Text("")
+
+'Quality Case
+f.Intrinsic.Control.if(v.Screen.Form!ddlDept.Text,=,"Quality","OR",v.Screen.Form!ddlDept.Text,=,"Engineering")
+	gui.Form.txtJob.Visible(True)
+	gui.Form.txtSuffix.Visible(True)
+	gui.Form.txtSeq.Visible(True)
+	gui.Form.lblJob.Visible(True)
+	gui.Form.lblSuffix.Visible(True)
+	gui.Form.lblSeq.Visible(True)
+	
+
+	f.Intrinsic.Control.If(v.screen.Form!txtJob.Text.Trim,<>,"")
+		gui.Form.ddlWC.Enabled(True)		
+	f.Intrinsic.Control.Else		
+		gui.Form.ddlWC.Enabled(False)
+	f.Intrinsic.Control.EndIf
+	
+'	'Priority set invisible	
+	gui.Form.ddlPriority.Visible(True)
+	gui.Form.lblPriority.Visible(True)	
+	
+	'Building Common Issues Dropdown list for Quality mode selection
+	f.Intrinsic.Control.CallSub(Populate_Common_Issues_DropDown,"sCommonIssues","Incorrect Color*!*Incorrect Dimensions*!*Physical Damage*!*Incorrect Component*!*Component Not Available*!*Drawing Issue")
+
+'IT or Maintenance Case
+f.Intrinsic.Control.Else
+	gui.Form.txtJob.Visible(False)
+	gui.Form.txtSuffix.Visible(False)
+	gui.Form.txtSeq.Visible(False)
+	gui.Form.lblJob.Visible(False)
+	gui.Form.lblSuffix.Visible(False)
+	gui.Form.lblSeq.Visible(False)
+	
+	'WC and Priority Visible
+	gui.Form.ddlWC.Enabled(True)
+	gui.Form.ddlPriority.Visible(True)
+	gui.Form.lblPriority.Visible(True)
+	
+	'IT Case
+	f.Intrinsic.Control.If(v.Screen.Form!ddlDept.Text,=,"IT")	
+		f.Intrinsic.Control.CallSub(Populate_Common_Issues_DropDown,"sCommonIssues","Computer Not On*!*Program Not Functioning*!*Printer Issue")
+	'Maintenance Case
+	f.Intrinsic.Control.Else	
+		f.Intrinsic.Control.CallSub(Populate_Common_Issues_DropDown,"sCommonIssues","Machine Down*!*Spill/ Hazard*!*Electrical Issue*!*Bit/ Blade")
+	f.Intrinsic.Control.EndIf		
+	
+f.Intrinsic.control.EndIf
+
+gui.Form.txtHeader.Text("")
+gui.Form.ddlPriority.ListIndex(-1)
+gui.Form.ddlCommonIssues.ListIndex(-1)
+f.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.ddlDept_Click.End
+
+Program.Sub.Populate_Common_Issues_DropDown.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+v.Local.sCommonIssues.Declare 
+v.Local.i.Declare 
+
+Gui.Form.ddlCommonIssues.ClearItems
+F.Intrinsic.String.Split(V.Args.sCommonIssues,"*!*",V.Local.sCommonIssues)
+F.Intrinsic.Control.For(V.Local.i,0,V.Local.sCommonIssues.UBound,1)
+	Gui.Form.ddlCommonIssues.AddItem(V.Local.sCommonIssues(V.Local.i))
+F.Intrinsic.Control.Next(V.Local.i)
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.Populate_Common_Issues_DropDown.End
+
+Program.Sub.txtJob_KeyPressEnter.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare 
+V.Local.sJob.Declare 
+V.Local.sSuffix.Declare 
+V.Local.sSeq.Declare 
+
+V.Local.sJob.Set(V.Screen.Form!txtJob.Text)
+F.Intrinsic.Control.If(V.Local.sJob.Left2,=,"$%")
+
+	'splitting scan to insert job suff seq into text boxes
+	F.Intrinsic.String.Split(V.Screen.Form!txtJob.Text,"%",V.Local.sJob)
+	
+	F.Intrinsic.String.RPad(V.Local.sJob(1),"0",15,V.Local.sJob)
+	
+	F.Intrinsic.String.Right(V.Local.sJob,6,V.Local.sSeq)
+	F.Intrinsic.String.Mid(V.Local.sJob,7,3,V.Local.sSuffix)
+	F.Intrinsic.String.Left(V.Local.sJob,6,V.Local.sJob)
+	
+	Gui.Form.txtJob.Text(V.Local.sJob)
+	Gui.Form.txtSeq.Text(V.Local.sSeq)
+	Gui.Form.txtSuffix.Text(V.Local.sSuffix)
+	
+F.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Screen.Form!txtJob.Text.Trim,<>,"")
+	Gui.Form.ddlWC.Enabled(True)
+f.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.txtJob_KeyPressEnter.End
+
+Program.Sub.Create_Header_Based_On_WildCard.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare 
+V.Local.sFile.Declare 
+V.Local.sRet.Declare 
+V.Local.sSql.Declare 
+
+'reading txt message and inserting in wildcards.
+f.Intrinsic.String.Build("Select Rec_ID, Group_ID, Group_Name, Sender_Email, Message From GCG_4451_TextM_Maint where ltrim(rtrim(Group_Name)) = '{0}' and ltrim(rtrim(Department)) = '{1}'",v.Screen.Form!txtG_Name.Text.Trim,v.Screen.Form!ddlDept.Text.Trim,v.Local.sSql)
+'F.Intrinsic.Control.If(V.ODBC.con!rst.State,=,1)
+'	F.ODBC.con!rst.Close
+'F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Global.bRST)
+	F.ODBC.con!rst.Close
+	V.Global.bRST.Set(False)
+F.Intrinsic.Control.EndIf
+		
+F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSql)
+V.Global.bRST.Set(True)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+	V.Local.sRet.Set(V.ODBC.con!rst.FieldValTrim!Message)
+	F.Intrinsic.String.Replace(V.Local.sRet,"{WC}",V.Screen.Form!ddlWC.Text,V.Local.sRet)		
+	F.Intrinsic.String.Replace(V.Local.sRet,"{EMP}",V.Screen.Form!txtEmp.Text,V.Local.sRet)				
+	F.Intrinsic.String.Replace(V.Local.sRet,"{JOB}",V.Screen.Form!txtJob.Text,V.Local.sRet)
+	F.Intrinsic.String.Replace(V.Local.sRet,"{SUFFIX}",V.Screen.Form!txtSuffix.Text,V.Local.sRet)
+	F.Intrinsic.String.Replace(V.Local.sRet,"{SEQ}",V.Screen.Form!txtSeq.Text,V.Local.sRet)	
+	F.Intrinsic.String.Replace(V.Local.sRet,"{PRIORITY}",V.Screen.Form!ddlPriority.Text,V.Local.sRet)	
+	gui.Form.txtHeader.Text(V.Local.sRet)
+F.Intrinsic.Control.EndIf
+
+'F.Intrinsic.Control.If(V.ODBC.con!rst.State,=,1)
+'	F.ODBC.con!rst.Close
+'F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Global.bRST)
+	F.ODBC.con!rst.Close
+	V.Global.bRST.Set(False)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.Create_Header_Based_On_WildCard.End
+
+Program.Sub.cmdClearText_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+gui.Form.txtHeader.Text("")
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.cmdClearText_Click.End
+
+Program.Sub.cmdAdd_CommonIssues_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare 
+
+F.Intrinsic.Control.If(V.Screen.Form!ddlCommonIssues.Text,<>,"")
+	V.Global.sCommon.Set(V.Screen.Form!ddlCommonIssues.Text)
+
+	F.Intrinsic.Control.If(V.Global.sCommon.Length,=,0)		
+		F.Intrinsic.String.Build("{0}{1}{1}Issues:{1}{2}",V.Screen.Form!txtHeader.Text,V.Ambient.NewLine,V.Global.sCommon,V.Global.sCommon)		
+	F.Intrinsic.Control.Else		
+		F.Intrinsic.String.Build("{0}{1}{2}",V.Screen.Form!txtHeader.Text,V.Ambient.NewLine,V.Global.sCommon,V.Global.sCommon)	
+	F.Intrinsic.Control.EndIf
+	gui.Form.txtHeader.Text(V.Global.sCommon)
+	
+F.Intrinsic.Control.EndIf
+
+'Reset Common Issues dropdownList
+Gui.Form.ddlCommonIssues.Text("")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.cmdAdd_CommonIssues_Click.End
+
+Program.Sub.cmdSend_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare 
+V.Local.i.Declare 
+V.Local.sSql.Declare 
+V.Local.sText.Declare 
+V.Local.sRet.Declare 
+V.Local.sEmp.Declare 
+V.Local.sEmail.Declare 
+V.Local.iRet.Declare 
+V.Local.iID.Declare 
+v.Local.sCRLF.Declare 
+
+f.Intrinsic.String.Build("Select Rec_ID, Group_ID, Group_Name, Group_Email, Sender_Email, Message From GCG_4451_TextM_Maint where ltrim(rtrim(Department)) = '{0}'",v.Screen.Form!ddlDept.Text,v.Local.sSql)
+'F.Intrinsic.Control.If(V.ODBC.con!rstSend.State,=,1)
+'	F.ODBC.con!rstSend.Close
+'F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Global.bRSTSend)
+	F.ODBC.con!rstSend.Close
+	V.Global.bRSTSend.Set(False)
+F.Intrinsic.Control.EndIf
+F.ODBC.Connection!con.OpenLocalRecordsetRO("rstSend",V.Local.sSql)
+V.Global.bRSTSend.Set(True)
+
+F.Intrinsic.Control.If(V.ODBC.con!rstSend.EOF,=,False)
+	F.Intrinsic.Control.If(V.ODBC.con!rstSend.FieldValTrim!Sender_Email,<>,"")
+		'text message
+		f.Intrinsic.String.Build("{0}{1}{2} {1}- Happening @ Workcenter:{3} User:{4}",V.Screen.Form!txtHeader.Text.Trim,v.Ambient.NewLine,V.Screen.Form!txtBody.Text.Trim,v.Screen.Form!ddlWC.Value,v.Screen.Form!txtEmp.Text,v.Local.sText)
+'		F.Intrinsic.String.Build("{0}{1}{2}"V.Screen.Form!txtHeader.Text.Trim,v.Ambient.NewLine,V.Screen.Form!txtBody.Text.Trim,v.Local.sText)
+		'adding blank line to make the text message look correct
+		F.Intrinsic.String.Build("{0}{1}",V.Ambient.NewLine,V.Local.sText,V.Local.sText)
+		F.Intrinsic.String.Concat(v.ASCII.13,v.ASCII.10,v.Local.sCRLF)'CRLF
+		F.Intrinsic.String.Replace(V.Local.sText,v.ASCII.10,v.Local.sCRLF,V.Local.sText)
+		
+		'Carrier values:
+		'0: ATT				6: US Cellular
+		'1: T-Mobile		7: Suncom
+		'2: Virgin Mobile	8: Powertel
+		'3: Sprint			9: Alltel
+		'4: Verizon			10: Metro PCS
+		'5: Boost Mobile
+		F.Global.Messaging.IsCourierRunning(V.Local.iRet)
+
+		F.Intrinsic.Control.SelectCase(V.Local.iRet)
+			F.Intrinsic.Control.Case(0)
+				F.Intrinsic.UI.Msgbox("Courier is not running")
+				
+			F.Intrinsic.Control.CaseElse
+			
+				F.Intrinsic.Control.SelectCase(v.Screen.Form!ddlDept.Text)
+					F.Intrinsic.Control.Case("Engineering")
+						f.Intrinsic.Control.If(v.Screen.Form!ddlPriority.Text.Trim,<>,"1-Emergency")
+							'if Certain Dept and Emergency then set group email
+							v.Global.sGrpEmail.Set(V.ODBC.con!rstSend.FieldValTrim!Group_Email)
+							v.Global.sGrpName.Set("Engineering")
+							'Send Text message when a quality issue
+						f.Intrinsic.Control.EndIf
+						
+						'Email & text
+						f.Intrinsic.Control.CallSub("SendTextMessage","sDepartment",v.Screen.Form!ddlDept.Text,"sTextMessage",v.Local.sText)
+					
+					F.Intrinsic.Control.Case("Quality")
+						f.Intrinsic.Control.If(v.Screen.Form!ddlPriority.Text.Trim,<>,"1-Emergency")
+							'if Certain Dept and Emergency then set group email
+							v.Global.sGrpEmail.Set(V.ODBC.con!rstSend.FieldValTrim!Group_Email)
+							v.Global.sGrpName.Set("Quality")
+							'Send Text message when a quality issue
+						f.Intrinsic.Control.EndIf
+						
+						'Currently will Text only
+						f.Intrinsic.Control.CallSub("SendTextMessage","sDepartment",v.Screen.Form!ddlDept.Text,"sTextMessage",v.Local.sText)
+						
+					F.Intrinsic.Control.Case("Maintenance")
+						f.Intrinsic.Control.If(v.Screen.Form!ddlPriority.Text.Trim,=,"")
+							f.Intrinsic.UI.Msgbox("Priority must be selected")
+							f.Intrinsic.Control.ExitSub
+						f.Intrinsic.Control.EndIf
+						
+						'check WC Selection
+						f.Intrinsic.Control.If(v.Screen.Form!ddlWC.Text.Trim,=,"")
+							f.Intrinsic.UI.Msgbox("A Workcenter must be selected")
+							f.Intrinsic.Control.ExitSub
+						f.Intrinsic.Control.EndIf
+						
+						f.Intrinsic.Control.If(v.Screen.Form!ddlPriority.Text.Trim,<>,"1-Emergency")
+							'if Certain Dept and Emergency then set group email
+'							v.Global.sGrpEmail.Set("Maintenance@loadking.com")
+							v.Global.sGrpEmail.Set(V.ODBC.con!rstSend.FieldValTrim!Group_Email)
+							v.Global.sGrpName.Set("Maintenance")
+							'Send Text message when a quality issue
+						f.Intrinsic.Control.EndIf
+						
+						f.Intrinsic.Control.CallSub("SendTextMessage","sDepartment",v.Screen.Form!ddlDept.Text,"sTextMessage",v.Local.sText)	
+							
+					F.Intrinsic.Control.CaseElse
+						f.Intrinsic.Control.If(v.Screen.Form!ddlPriority.Text.Trim,=,"")
+							f.Intrinsic.UI.Msgbox("Priority must be selected")
+							f.Intrinsic.Control.ExitSub
+						f.Intrinsic.Control.Else
+						
+							'check WC Selection
+							f.Intrinsic.Control.If(v.Screen.Form!ddlWC.Text.Trim,=,"")
+								f.Intrinsic.UI.Msgbox("A Workcenter must be selected")
+								f.Intrinsic.Control.ExitSub
+							f.Intrinsic.Control.EndIf
+							
+							'check to see if emergency and if NOT emergency, then set group email to send message to. this is a a group email that several employees monitor and create tickets off of for low-priority issues.
+							'Emergencies will go via text
+							f.Intrinsic.Control.If(v.Screen.Form!ddlPriority.Text.Trim,<>,"1-Emergency")
+								'if Certain Dept and Emergency then set group email
+'								v.Global.sGrpEmail.Set("HelpDesk@loadking.com")
+								v.Global.sGrpEmail.Set(V.ODBC.con!rstSend.FieldValTrim!Group_Email)
+								v.Global.sGrpName.Set("IT")
+							f.Intrinsic.Control.EndIf
+							
+						f.Intrinsic.Control.EndIf
+						
+						'Send Text message	/email		
+						f.Intrinsic.Control.CallSub("SendTextMessage","sDepartment",v.Screen.Form!ddlDept.Text,"sTextMessage",v.Local.sText)														
+				F.Intrinsic.Control.EndSelect
+				
+		F.Intrinsic.Control.EndSelect
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Go to Online System > File > Quality Issue Maint and Enter a Sender Email")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Go to Online System > File > Quality Issue Maint and Enter a Group and Sender Email")
+F.Intrinsic.Control.EndIf
+
+'F.Intrinsic.Control.If(V.ODBC.con!rstSend.State,=,1)
+'	F.ODBC.con!rstSend.Close
+'F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Global.bRSTSend)
+	F.ODBC.con!rstSend.Close
+	V.Global.bRSTSend.Set(False)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.CallSub(form_unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.cmdSend_Click.End
+
+Program.Sub.SendTextMessage.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+v.Local.sRet.Declare 
+v.Local.sEmp.Declare 
+v.Local.sSQL.Declare 
+v.Local.i.Declare 
+v.Local.sGroup.Declare 
+v.Local.sEmail.Declare 
+V.Local.sRecipients.Declare 
+v.Local.sSender.Declare 
+v.Local.sTitle.Declare 
+v.Local.iID.Declare 
+V.Local.sDepartment.Declare 
+V.Local.sPhone.Declare 
+V.Local.sGroupEmail.Declare
+V.Local.sCriticalEmail.Declare
+V.Local.bSendEmail.Declare
+
+V.Local.sDepartment.Set(V.Screen.Form!ddlDept.Text)
+V.Local.sDepartment.Set(V.Local.sDepartment.Trim)
+
+'get group SFF 1/9/2018
+f.Intrinsic.String.Build("select Sender_Email,group_name, Critical_Email, Send_Crit_Email from GCG_4451_TextM_Maint where ucase(Department) = '{0}'",V.Local.sDepartment.UCase,v.Local.sSQL)
+'F.Intrinsic.Control.If(V.ODBC.con!rstGrp.State,=,1)
+'	F.ODBC.con!rstGrp.Close
+'F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Global.bRSTGrp)
+	F.ODBC.con!rstGrp.Close
+	V.Global.bRSTGrp.Set(False)
+F.Intrinsic.Control.EndIf
+f.ODBC.Connection!con.openrecordsetro("rstGrp",v.Local.sSQL)
+V.Global.bRSTGrp.Set(True)
+f.Intrinsic.Control.If(v.ODBC.con!rstGrp.EOF,<>,true)
+	v.Local.sGroup.Set(v.ODBC.con!rstGrp.FieldValTrim!GROUP_NAME)
+	v.Local.sEmail.Set(v.ODBC.con!rstGrp.FieldValTrim!SENDER_EMAIL)
+	V.Local.sCriticalEmail.Set(V.ODBC.con!rstGrp.FieldValTrim!Critical_Email)
+	V.Local.bSendEmail.Set(V.ODBC.con!rstGrp.FieldVal!Send_Crit_Email)
+f.Intrinsic.Control.Else
+	f.Intrinsic.UI.Msgbox("No Group set up to Receive Messages. Contact IT.")
+	f.Intrinsic.Control.End
+f.Intrinsic.Control.EndIf
+
+'F.Intrinsic.Control.If(V.ODBC.con!rstGrp.State,=,1)
+'	F.ODBC.con!rstGrp.Close
+'F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Global.bRSTGrp)
+	F.ODBC.con!rstGrp.Close
+	V.Global.bRSTGrp.Set(False)
+F.Intrinsic.Control.EndIf
+
+'if there is a value in the Group Email global variable, this means there is an emergency, see the cmdSend_Click sub for further info.
+f.Intrinsic.Control.If(v.Global.sGrpEmail.Trim,<>,"")
+	'send emails to groupe email for low priority issues
+	f.Intrinsic.String.Build("{0}*!*{1}",v.Local.sEmail,v.Screen.Form!ddlWC.Value,v.Local.sSender)
+	
+	f.Intrinsic.Control.If(v.Global.sGrpName,=,"IT")
+		f.Intrinsic.String.Build("Issue: {0} @ PC:{1} User:{2}",v.Screen.Form!ddlWC.Value,v.System.ComputerName,v.System.UserName,v.Local.sTitle)
+	f.Intrinsic.Control.Else
+		f.Intrinsic.String.Build("Issue: {0}",v.Screen.Form!ddlWC.Value,v.Local.sTitle)
+	f.Intrinsic.Control.EndIf
+
+	f.Global.Security.GetUserId(v.Caller.User,v.Caller.CompanyCode,v.local.iID)
+	F.Intrinsic.String.Split(V.Global.sGrpEmail,";",V.Local.sGroupEmail)
+	F.Intrinsic.Control.If(V.Local.sGroupEmail.UBound,>,0)
+		F.Intrinsic.String.Replace(V.Global.sGrpEmail,";",",",V.Local.sGroupEmail)
+		V.Local.sRecipients.Set(V.Local.sGroupEmail)
+	F.Intrinsic.Control.Else
+		f.Intrinsic.String.Build("{0}*!*{1}",v.Global.sGrpName,v.Global.sGrpEmail,V.Local.sRecipients)
+	F.Intrinsic.Control.EndIf
+	
+	F.Global.Messaging.QueueMessage(V.Caller.CompanyCode,v.Local.iID,V.Caller.Caller,v.Local.sTitle,V.Local.sSender,V.Local.sRecipients,v.Args.sTextMessage,-1,"",False,"","","","","","","","",True)
+
+f.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Local.bSendEmail)
+		f.Intrinsic.Control.If(v.Global.sGrpName,=,"IT")
+			f.Intrinsic.String.Build("Issue: {0} @ PC:{1} User:{2}",v.Screen.Form!ddlWC.Value,v.System.ComputerName,v.System.UserName,v.Local.sTitle)
+		f.Intrinsic.Control.Else
+			f.Intrinsic.String.Build("Issue: {0}",v.Screen.Form!ddlWC.Value,v.Local.sTitle)
+		f.Intrinsic.Control.EndIf
+		'send emails to groupe email for low priority issues
+		f.Intrinsic.String.Build("{0}*!*{1}",V.Screen.Form!ddlDept.Value,v.Local.sEmail,v.Local.sSender)
+		F.Global.Messaging.QueueMessage(V.Caller.CompanyCode,v.Local.iID,V.Caller.Caller,v.Local.sTitle,V.Local.sSender,V.Local.sCriticalEmail,v.Args.sTextMessage,-1,"",False,"","","","","","","","",True)
+	F.Intrinsic.Control.Else
+	
+		'SEND TEXTS instead because it is an emergency
+		'getting memebers of group that was selected in the maint program
+		F.Global.Security.GetGroupMembers(v.Local.sGroup,V.Local.sRet)
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		
+		'looping through and sending a txt message to each member of the selected group
+		F.Intrinsic.Control.For(V.Local.i,0,V.Local.sRet.UBound,1)
+			F.Global.Security.GetEmpNoFromUser(V.Local.sRet(V.Local.i).Trim,V.Local.sEmp)
+			F.Intrinsic.String.Build("Select Phone From V_Employee_Mstr Where Employee = '{0}'",V.Local.sEmp,V.Local.sSql)
+'			F.Intrinsic.Control.If(V.ODBC.con!rst.State,=,1)
+'				F.ODBC.con!rst.Close
+'			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.Global.bRST)
+				F.ODBC.con!rst.Close
+				V.Global.bRST.Set(False)
+			F.Intrinsic.Control.EndIf
+			F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSql)
+			V.Global.bRST.Set(True)
+			F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)	
+				'customer has verizon phones
+				V.Local.sPhone.Set(V.ODBC.con!rst.FieldValTrim!Phone)
+				F.Intrinsic.Control.If(V.Local.sPhone.Trim,<>,"0")
+					F.Global.Messaging.CreateSMSmessage(4,V.Local.sPhone.Trim,v.Local.sEmail,v.Args.sDepartment,V.Args.sTextMessage)
+					F.Global.Messaging.CreateSMSmessage(1,V.Local.sPhone.Trim,v.Local.sEmail,v.Args.sDepartment,V.Args.sTextMessage)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+'			F.Intrinsic.Control.If(V.ODBC.con!rst.State,=,1)
+'				F.ODBC.con!rst.Close
+'			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.Global.bRST)
+				F.ODBC.con!rst.Close
+				V.Global.bRST.Set(False)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.i)
+	F.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.SendTextMessage.End
+
+'''''''''''''''''''''''''''''''''''''''''''''Form 2'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Program.Sub.txtSenderEmail_LostFocus.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+V.Local.sRet.Declare 
+V.Local.bRet.Declare
+
+V.Local.sRet.Set(V.Screen.Form2!txtSenderEmail.Text)
+
+'checking that the email entered has at least @ in the text.
+F.Global.Messaging.IsAddressValid(V.Local.sRet.Trim,V.Local.bRet)
+
+F.Intrinsic.Control.If(V.Local.bRet,=,False)
+	F.Intrinsic.UI.Msgbox("Need to enter a valid email address (ie. example@gmail.com)")
+	Gui.Form2.txtSenderEmail.SetFocus
+	Gui.Form2.txtSenderEmail.SelectAll
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.txtSenderEmail_LostFocus.End
+
+Program.Sub.cmdGroup_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare 
+V.Local.sRet.Declare 
+
+F.Intrinsic.UI.Browser(15,"",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.Form2.txtGroup.Text(V.Local.sRet(0).Trim)
+	Gui.Form2.txtGroupName.Text(V.Local.sRet(1).Trim)
+	f.Intrinsic.control.CallSub("PopulateWildCardText","Group_Name",V.Local.sRet(1).Trim,"Department",v.Screen.Form2!ddlMaintDept.Text)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.cmdGroup_Click.End
+
+Program.Sub.ddlMaintDept_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+f.Intrinsic.control.CallSub("PopulateWildCardText","Group_Name",v.Screen.Form2!txtGroupName.Text.Trim,"Department",v.Screen.Form2!ddlMaintDept.Text)
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.ddlMaintDept_Click.End
+
+Program.Sub.PopulateWildCardText.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+v.Local.sSQL.Declare 
+v.Local.sRet.Declare 
+
+f.Intrinsic.String.Build("Select Message From GCG_4451_TextM_Maint where ltrim(rtrim(Group_Name)) = '{0}' and ltrim(rtrim(Department)) = '{1}'",v.Args.Group_Name,v.Args.Department,v.Local.sSql)
+f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+gui.Form2.txtMessage.Text(v.Local.sRet)
+f.Intrinsic.String.Build("Select Sender_Email From GCG_4451_TextM_Maint where ltrim(rtrim(Group_Name)) = '{0}' and ltrim(rtrim(Department)) = '{1}'",v.Args.Group_Name,v.Args.Department,v.Local.sSql)
+f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+gui.Form2.txtSenderEmail.Text(v.Local.sRet.Trim)
+f.Intrinsic.String.Build("Select Group_Email From GCG_4451_TextM_Maint where ltrim(rtrim(Group_Name)) = '{0}' and ltrim(rtrim(Department)) = '{1}'",v.Args.Group_Name,v.Args.Department,v.Local.sSql)
+f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+gui.Form2.txtGroupEmail.Text(v.Local.sRet.Trim)
+f.Intrinsic.String.Build("Select Critical_Email From GCG_4451_TextM_Maint where ltrim(rtrim(Group_Name)) = '{0}' and ltrim(rtrim(Department)) = '{1}'",v.Args.Group_Name,v.Args.Department,v.Local.sSql)
+f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+Gui.Form2.txtCritEmail.Text(V.Local.sRet.Trim)
+f.Intrinsic.String.Build("Select Send_Crit_Email From GCG_4451_TextM_Maint where ltrim(rtrim(Group_Name)) = '{0}' and ltrim(rtrim(Department)) = '{1}'",v.Args.Group_Name,v.Args.Department,v.Local.sSql)
+f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+	gui.Form2.chkCritEmailorText.Value(v.Local.sRet)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.PopulateWildCardText.End
+
+Program.Sub.cmdSave_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare 
+V.Local.sSql.Declare 
+V.Local.bRet.Declare 
+
+'checking that the email entered has at least @ in the text.
+'F.Global.Messaging.IsAddressValid(V.Screen.Form2!txtGroupEmail.Text,V.Local.bRet)
+F.Intrinsic.String.IsInString(V.Screen.Form2!txtGroupEmail.Text,"@",True,V.Local.bRet)
+
+F.Intrinsic.Control.If(V.Local.bRet,=,False)
+	F.Intrinsic.UI.Msgbox("Need to enter a valid email address for Group Email (ie. example@gmail.com)")
+	Gui.Form2.txtSenderEmail.SetFocus
+	Gui.Form2.txtSenderEmail.SelectAll
+	f.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'checking that the email entered has at least @ in the text.
+F.Global.Messaging.IsAddressValid(V.Screen.Form2!txtSenderEmail.Text.Trim,V.Local.bRet)
+
+F.Intrinsic.Control.If(V.Local.bRet,=,False)
+	F.Intrinsic.UI.Msgbox("Need to enter a valid email address for Sender Email (ie. example@gmail.com)")
+	Gui.Form2.txtSenderEmail.SetFocus
+	Gui.Form2.txtSenderEmail.SelectAll
+	f.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+f.Intrinsic.UI.InvokeWaitDialog("Saving...")
+f.Intrinsic.String.Build("Select Rec_ID, Group_ID, Group_Name, Group_Email, Sender_Email, Department, Message, Critical_Email, Send_Crit_Email From GCG_4451_TextM_Maint where Group_ID = '{0}' and ltrim(rtrim(Department)) = '{1}'",V.Screen.Form2!txtGroup.Text,v.Screen.Form2!ddlMaintDept.Text,v.Local.sSql)
+'F.Intrinsic.Control.If(V.ODBC.con!rst.State,=,1)
+'	F.ODBC.con!rst.Close
+'F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Global.bRST)
+	F.ODBC.con!rst.Close
+	V.Global.bRST.Set(False)
+F.Intrinsic.Control.EndIf
+			
+F.ODBC.Connection!con.OpenLocalRecordsetRW("rst",V.Local.sSql)
+V.Global.bRST.Set(True)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+	F.ODBC.con!rst.AddNew
+	F.ODBC.con!rst.Set!Rec_Id(1)
+F.Intrinsic.Control.EndIf
+
+F.ODBC.con!rst.Set!Group_ID(V.Screen.Form2!txtGroup.Text)
+F.ODBC.con!rst.Set!Group_Name(V.Screen.Form2!txtGroupName.Text)
+F.ODBC.con!rst.Set!Group_Email(V.Screen.Form2!txtGroupEmail.Text)
+F.ODBC.con!rst.Set!Sender_Email(V.Screen.Form2!txtSenderEmail.Text)
+F.ODBC.con!rst.Set!Department(V.Screen.Form2!ddlMaintDept.Text)
+F.ODBC.con!rst.Set!Message(V.Screen.Form2!txtMessage.Text)
+F.ODBC.con!rst.Set!Critical_Email(V.Screen.Form2!txtCritEmail.Text)
+F.ODBC.con!rst.Set!Send_Crit_Email(V.Screen.Form2!chkCritEmailorText.Value)
+
+F.ODBC.con!rst.Update
+'F.Intrinsic.Control.If(V.ODBC.con!rst.State,=,1)
+'	F.ODBC.con!rst.Close
+'F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Global.bRST)
+	F.ODBC.con!rst.Close
+	V.Global.bRST.Set(False)
+F.Intrinsic.Control.EndIf
+f.Intrinsic.UI.CloseWaitDialog
+
+
+'F.Intrinsic.Control.CallSub(form_unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.cmdSave_Click.End
+
+Program.Sub.cmdClearBody_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+gui.Form.txtBody.Text("")
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4551_Qualityy_Txt_Msg.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form_Unload)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.cmdClearBody_Click.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$RLK$}$4/5/2017 3:18:13 PM$}$False
+${$5$}$2.0.0.0$}$2
+${$6$}$rking$}$20230605152547209$}$QNdZLVy4bWuiWa9jh1ZTiKHvMPldSPXeLH2AnFZXS96NX4Vg+7xqWvXw4kL5L9PU02nnYaAjHq4=
+Program.Sub.Comments.End
