@@ -1,0 +1,2 @@
+1GCG_4451_TEXTM_MAINT$!$2016.2$!$3$!$False$!$$!$0$!$False%!%2REC_ID#!#BIGINT#!#False#!#False#!#False#!#$!$GROUP_ID#!#INTEGER#!#False#!#False#!#False#!#$!$GROUP_NAME#!#CHAR(20)#!#False#!#False#!#False#!#$!$SENDER_EMAIL#!#CHAR(30)#!#False#!#False#!#False#!#$!$MESSAGE#!#LONGVARCHAR#!#False#!#False#!#False#!#$!$DEPARTMENT#!#CHAR(11)#!#False#!#False#!#False#!#$!$GROUP_EMAIL#!#CHAR(100)#!#False#!#False#!#False#!#$!$CRITICAL_EMAIL#!#CHAR(100)#!#False#!#False#!#False#!#$!$SEND_CRIT_EMAIL#!#BIT
+#!#False#!#False#!#False#!#$!$%!%3%!%%!%5GAP_4451%!%^*!*^
